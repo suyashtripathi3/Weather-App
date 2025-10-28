@@ -1,9 +1,8 @@
-// src/components/SearchBar.jsx
 import React from "react";
 import { FaSearch, FaMicrophone, FaLocationArrow } from "react-icons/fa";
 
 export default function SearchBar({ city, setCity, onSearch, onLocate }) {
-  // 🧠 Trigger search when user presses Enter key
+  // Trigger search when user presses Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       onSearch();
@@ -16,7 +15,7 @@ export default function SearchBar({ city, setCity, onSearch, onLocate }) {
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        onKeyDown={handleKeyDown} // 👈 handle Enter key
+        onKeyDown={handleKeyDown}
         placeholder="Enter city..."
         className="input input-bordered w-full bg-white/90 focus:outline-none focus:ring focus:ring-blue-300 text-black"
       />

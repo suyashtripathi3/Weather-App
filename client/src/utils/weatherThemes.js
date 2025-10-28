@@ -1,4 +1,3 @@
-// src/utils/weatherTheme.js
 export const weatherThemes = {
   sunny: {
     bg: "bg-gradient-to-br from-yellow-300 to-orange-500",
@@ -27,8 +26,8 @@ export const weatherThemes = {
   },
 };
 
-/**
- * Map Open-Meteo weather code to a theme type
+/*
+ Map Open-Meteo weather code to a theme type
  */
 export function getThemeByWeatherCode(code) {
   if (code === 0) return "sunny"; // Clear

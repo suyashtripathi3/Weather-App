@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React, { useState, useEffect } from "react";
 import { useWeather } from "../hooks/useWeather";
 import { useTheme } from "../hooks/useTheme"; // 🆕 import
@@ -18,14 +17,14 @@ export default function Home() {
     fetchWeatherByCity,
     fetchWeatherByLocation,
   } = useWeather();
-  const { darkMode, toggleTheme } = useTheme(); // 🆕 use custom hook
+  const { darkMode, toggleTheme } = useTheme();
 
   const [city, setCity] = useState("");
   const [bgClass, setBgClass] = useState(
     "from-blue-100 via-cyan-100 to-indigo-100"
   );
 
-  // 🌤 Change background dynamically based on weather type
+  //  Change background dynamically based on weather type
   useEffect(() => {
     if (!weatherData) {
       setBgClass("from-blue-100 via-cyan-100 to-indigo-100");
@@ -62,7 +61,7 @@ export default function Home() {
       className={`flex flex-col min-h-screen w-full bg-linear-to-br ${bgClass} 
       transition-all duration-700 ease-in-out`}
     >
-      {/* 🌍 Navbar */}
+      {/* Navbar */}
       <nav className="navbar bg-base-200/80 backdrop-blur-md shadow-md w-full rounded-b-2xl px-6 flex justify-between items-center">
         <motion.h1
           initial={{ y: -10, opacity: 0 }}
@@ -70,10 +69,10 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="text-2xl md:text-3xl font-bold text-primary"
         >
-          🌦️ Weather App
+          🌦️ Weather Now
         </motion.h1>
 
-        {/* 🌗 Theme Toggle */}
+        {/*  Theme Toggle */}
         <button
           onClick={toggleTheme}
           className="btn btn-circle btn-ghost text-xl"
@@ -83,7 +82,7 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* 🌤 Main Content */}
+      {/* Main Content */}
       <main className="flex flex-col items-center justify-center grow px-4 py-6 text-center">
         <SearchBar
           city={city}
@@ -107,7 +106,7 @@ export default function Home() {
         )}
       </main>
 
-      {/* 🦶 Footer */}
+      {/* Footer */}
       <footer className="footer footer-center p-4 bg-base-200/80 backdrop-blur-md text-base-content rounded-t-2xl">
         <aside>
           <p className="text-sm opacity-70">

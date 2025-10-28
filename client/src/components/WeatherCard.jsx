@@ -1,4 +1,3 @@
-// src/components/WeatherCard.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -55,7 +54,7 @@ export default function WeatherCard({ data }) {
         <p className="text-sm mt-4 italic">({themeKey.toUpperCase()})</p>
       </div>
 
-      {/* Optional animated raindrops / snowflakes */}
+      {/* Optional animated raindrops / snow flakes */}
       {themeKey === "rainy" && (
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (

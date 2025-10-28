@@ -1,4 +1,3 @@
-// src/hooks/useWeather.js
 import { useState } from "react";
 import { geocodeCity, fetchWeatherForLatLon } from "../utils/fetchWeather";
 
@@ -7,9 +6,8 @@ export function useWeather() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  /**
-   * Fetch weather by city name
-   */
+  //  Fetch weather by city name
+
   const fetchWeatherByCity = async (city) => {
     if (!city || city.trim() === "") {
       setError("Please enter a valid city name.");
@@ -21,17 +19,17 @@ export function useWeather() {
       setError(null);
       setWeatherData(null);
 
-      // 1️⃣ Get coordinates from city name
+      //  Get coordinates from city name
       const geo = await geocodeCity(city);
 
-      // 2️⃣ Fetch weather using coordinates
+      //  Fetch weather using coordinates
       const data = await fetchWeatherForLatLon(
         geo.latitude,
         geo.longitude,
         geo.timezone
       );
 
-      // 3️⃣ Combine data into a single clean object
+      //  Combine data into a single clean object
       setWeatherData({
         city: geo.name,
         country: geo.country,
@@ -45,9 +43,7 @@ export function useWeather() {
     }
   };
 
-  /**
-   * Fetch weather using device location
-   */
+    // Fetch weather using device location
   const fetchWeatherByLocation = () => {
     if (!navigator.geolocation) {
       setError("Geolocation is not supported by your browser.");

@@ -1,6 +1,5 @@
-// src/utils/fetchWeather.js
-/**
- * Geocode city name to latitude/longitude using Open-Meteo API
+/*
+ Geocode city name to latitude/longitude using Open-Meteo API
  */
 export async function geocodeCity(city) {
   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
@@ -26,8 +25,8 @@ export async function geocodeCity(city) {
   }
 }
 
-/**
- * Fetch current and hourly weather for a given latitude/longitude
+/*
+ etch current and hourly weather for a given latitude/longitude
  */
 export async function fetchWeatherForLatLon(lat, lon, timezone = "auto") {
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,relative_humidity_2m,pressure_msl,windspeed_10m,weathercode&timezone=${encodeURIComponent(
@@ -48,8 +47,8 @@ export async function fetchWeatherForLatLon(lat, lon, timezone = "auto") {
   }
 }
 
-/**
- * Find the nearest hourly index for current time
+/*
+ Find the nearest hourly index for current time
  */
 export function findHourlyIndexForCurrentTime(hourlyTimeArray, currentTimeIso) {
   const target = new Date(currentTimeIso).getTime();
